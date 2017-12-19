@@ -1,9 +1,8 @@
 from pwn import *
 
-
 con = ssh("mistake", "pwnable.kr", 2222, "guest")
 sh = con.process(executable="/home/mistake/mistake")
-password = "1111111111"     # 10
+password = "1111111111"  # 10
 sh.recvuntil("...")
 sh.sendline(password)
 sh.recvuntil(": ")

