@@ -1,6 +1,5 @@
 from pwn import *
 
-
 con = ssh("random", "pwnable.kr", 2222, "guest")
 sh = con.process("./random")
 sh.sendline("3039230856")

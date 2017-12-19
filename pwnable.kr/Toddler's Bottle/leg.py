@@ -1,6 +1,5 @@
 from pwn import *
 
-
 con = ssh("leg", "pwnable.kr", 2222, "guest")
 sh = con.run(" ")
 key1 = 0x00008cdc + 8
