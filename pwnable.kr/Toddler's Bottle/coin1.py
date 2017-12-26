@@ -30,7 +30,7 @@ print(sh.recv())
 """
 
 con = ssh("input2", "pwnable.kr", 2222, "guest")
-con.shell("mkdir /tmp/leo/ && cd /tmp/leo/")
+con.shell("mkdir /tmp/leo/")
 con.upload_data(pwnfile, "/tmp/leo/pwnfile2.py")
 sh = con.run("python -i /tmp/leo/pwnfile2.py")
 for x in range(0, 104):
