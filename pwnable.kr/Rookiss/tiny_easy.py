@@ -20,6 +20,6 @@ con = ssh("tiny_easy", "pwnable.kr", 2222, "guest")
 con.shell("mkdir /tmp/leo4")
 con.upload_data(pwnfile, "/tmp/leo4/pwnfile.py")
 sh = con.run('python -i "/tmp/leo4/pwnfile.py"')
-print sh.recv(4096)
+print sh.recvuntil(">>>")
 
 # What a tiny task :) good job!
